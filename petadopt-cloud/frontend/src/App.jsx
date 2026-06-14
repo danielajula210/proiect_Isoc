@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const ANIMAL_SERVICE_URL = "http://localhost:3001";
-const ADOPTION_SERVICE_URL = "http://localhost:3002";
+const ANIMAL_SERVICE_URL =
+  import.meta.env.VITE_ANIMAL_SERVICE_URL || "http://localhost:3001";
+
+const ADOPTION_SERVICE_URL =
+  import.meta.env.VITE_ADOPTION_SERVICE_URL || "http://localhost:3002";
 
 function App() {
   const [animals, setAnimals] = useState([]);
