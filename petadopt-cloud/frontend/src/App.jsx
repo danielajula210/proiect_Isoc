@@ -153,6 +153,11 @@ function App() {
           {animals.map((animal) => (
             <div key={animal.id} className="item">
               <h3>{animal.name}</h3>
+
+              <p>
+                <strong>ID animal:</strong> {animal.id}
+              </p>
+
               <p>
                 {animal.species} • {animal.breed} • {animal.age} ani
               </p>
