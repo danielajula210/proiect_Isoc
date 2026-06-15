@@ -180,6 +180,26 @@ app.patch("/adoption-requests/:id/reject", async (req, res) => {
   }
 });
 
+app.delete("/adoption-requests/animal/:animalId", async (req, res) => {
+  try {
+    const { animalId } = req.params;
+
+    const result = await AdoptionRequest.deleteMany({
+      animalId: Number(animalId),
+    });
+
+    res.json({
+      message: "Adoption requests for animal deleted successfully.",
+      deletedCount: result.deletedCount,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Error deleting adoption requests for animal",
+      error: error.message,
+    });
+  }
+});
+
 app.delete("/adoption-requests/:id", async (req, res) => {
   try {
     const request = await AdoptionRequest.findByIdAndDelete(req.params.id);
