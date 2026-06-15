@@ -26,6 +26,8 @@ select {
   min-height: 230px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 36px;
   border-radius: 28px;
   background:
@@ -45,7 +47,7 @@ select {
 
 .hero p {
   max-width: 650px;
-  margin: 0;
+  margin: 0 auto;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -313,17 +315,17 @@ textarea {
   margin-top: 18px;
 }
 
-.request-item,
-.compact-item img {
-  width: 76px;
-  height: 64px;
-  border-radius: 14px;
-  object-fit: contain;
-  object-position: center;
-  background: #fff7ed;
+.compact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #f3f4f6;
+  border-radius: 18px;
+  background: #fffaf5;
 }
 
-.request-item p,
 .compact-item p {
   margin: 5px 0 0;
   color: #6b7280;
@@ -481,4 +483,62 @@ textarea {
 .admin-animal-item .button-row {
   flex-wrap: wrap;
   justify-content: flex-end;
+}
+
+.request-card {
+  padding: 18px;
+  margin-bottom: 14px;
+  border-radius: 20px;
+  border: 2px solid #e7c9a5;
+  background: #fffaf5;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+}
+
+.admin-request-card {
+  border: 2px solid #d6b38a;
+  background: #fffdf9;
+}
+
+.request-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.request-card-header h4 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: #111827;
+}
+
+.request-owner,
+.request-email {
+  margin: 4px 0;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.request-message {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.admin-request-card {
+  background: #fffdf9;
+}
+
+.admin-request-buttons {
+  margin-top: 14px;
+  justify-content: flex-start;
+}
+
+@media (max-width: 780px) {
+  .request-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

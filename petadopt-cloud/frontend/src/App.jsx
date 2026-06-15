@@ -338,21 +338,26 @@ async function deleteAnimal(id) {
                 <p className="empty-text">Nu există cereri de adopție.</p>
               )}
 
-              {requests.map((request) => (
-                <div key={request._id} className="request-item">
+            {requests.map((request) => (
+              <div key={request._id} className="request-card">
+                <div className="request-card-header">
                   <div>
-                    <strong>{getAnimalName(request.animalId)}</strong>
-                    <p>
-                      {request.applicantName} • {request.applicantEmail}
+                    <h4>{getAnimalName(request.animalId)}</h4>
+                    <p className="request-owner">
+                      Solicitant: {request.applicantName}
                     </p>
-                    <p>{request.message}</p>
                   </div>
 
                   <span className={`badge ${request.status.toLowerCase()}`}>
                     {request.status}
                   </span>
                 </div>
-              ))}
+
+                <p className="request-message">
+                  {request.message || "Fără mesaj suplimentar."}
+                </p>
+              </div>
+            ))}
             </div>
           </section>
         </main>
@@ -487,7 +492,7 @@ async function deleteAnimal(id) {
         <h2>Lista animale</h2>
 
         <div className="compact-list">
-          {animals.map((animal) => (
+          {animals.map((animal, index) => (
             <div key={animal.id} className="compact-item admin-animal-item">
               <img
                 src={animal.image_url || PLACEHOLDER_IMAGE}
@@ -496,7 +501,7 @@ async function deleteAnimal(id) {
 
               <div>
                 <strong>
-                  #{animal.id} {animal.name}
+                  #{index + 1} {animal.name}
                 </strong>
                 <p>
                   {animal.species} • {animal.breed || "Rasă necunoscută"} •{" "}
@@ -543,7 +548,7 @@ async function deleteAnimal(id) {
           )}
 
           {requests.map((request) => (
-            <div key={request._id} className="request-item admin-request">
+            <div key={request._id} className="request-card admin-request-card">
               <div>
                 <strong>{getAnimalName(request.animalId)}</strong>
                 <p>
